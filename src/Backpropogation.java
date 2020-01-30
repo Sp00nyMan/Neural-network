@@ -3,7 +3,7 @@ import Network.Node;
 
 public class Backpropogation
 {
-	private static final double learningRate = 0.7;
+	private static final double learningRate = 1.05;
 	private static int maxEpochs = 100000;
 	private static double minAccuracy = 0.00001;
 
@@ -44,7 +44,11 @@ public class Backpropogation
 				System.out.println("Error of " + iterator + " epoch is " + ourBigBoy.getTotalError());
 			}
 			if (ourBigBoy.getTotalError() <= minAccuracy)
+			{
+				if(!printInfo)
+					System.out.println(iterator);
 				break;
+			}
 		}
 
 		return ourBigBoy;

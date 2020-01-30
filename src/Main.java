@@ -16,11 +16,11 @@ public class Main
 												new double[]{0, 0},
 												new double[]{0, 1},
 												new double[]{1, 0},
-										};
+											};
 		int[] hidden = new int[] {3, 2};
 
 		long started = currentTimeMillis();
-		NeuralNetwork test = Backpropogation.getTrainedNetwork(inputs, targets, hidden, true);
+		NeuralNetwork test = Backpropogation.getTrainedNetwork(inputs, targets, hidden, false);
 
 		System.out.println("DONE");
 		System.out.println("Time spent: " + (currentTimeMillis() - started) + " ms");
