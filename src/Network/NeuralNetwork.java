@@ -9,6 +9,15 @@ public class NeuralNetwork implements Cloneable
 
 	double totalError;
 
+	public double getTotalError()
+	{
+		return totalError;
+	}
+	public void resetTotalError()
+	{
+		totalError = 0;
+	}
+
 	public NeuralNetwork clone()
 	{
 		try
@@ -75,7 +84,7 @@ public class NeuralNetwork implements Cloneable
 		return output;
 	}
 
-	double calculateTotalError(final double[] idealOutput)
+	public double calculateTotalError(final double[] idealOutput)
 	{
 		if (output.length != idealOutput.length)
 			throw new IllegalArgumentException("length of idealOutput array have to be the same as neural network's output layer length");
@@ -110,6 +119,9 @@ public class NeuralNetwork implements Cloneable
 	private void calcOutputLayerDeltas(double[] targetOutput)
 	{
 		Node[] outputLayer = body[body.length - 1];
+
+		if(targetOutput.length != outputLayer.length)
+			throw new IllegalArgumentException();
 
 		for (int i = 0; i < outputLayer.length; i++)
 		{

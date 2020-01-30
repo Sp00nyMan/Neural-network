@@ -1,15 +1,32 @@
 import Network.NeuralNetwork;
 
+import static java.lang.System.currentTimeMillis;
+
+
 public class Main
 {
 	public static void main(String[] args)
 	{
-		double[] targets = new double[] {0.01, 0.99};
-		NeuralNetwork test = new NeuralNetwork(new int[]{2,3,2}, 2);
-		test.getOutput(new double[] {0.05, 0.1});
+		double[][] targets = new double[][] {
+												new double[]{0},
+												new double[]{1},
+												new double[]{1},
+											};
+		double[][] inputs = new double[][] {
+												new double[]{0, 0},
+												new double[]{0, 1},
+												new double[]{1, 0},
+										};
+		int[] hidden = new int[] {3, 2};
 
-		test.calculateDeltas(targets);
+		long started = currentTimeMillis();
+		NeuralNetwork test = Backpropogation.getTrainedNetwork(inputs, targets, hidden, true);
 
-		double learningRate = 0.5;
+		System.out.println("DONE");
+		System.out.println("Time spent: " + (currentTimeMillis() - started) + " ms");
+		for (double v : test.getOutput(new double[] {1, 1}))
+		{
+			System.out.println(v);
+		}
 	}
 }
