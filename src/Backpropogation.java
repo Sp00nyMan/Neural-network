@@ -37,8 +37,9 @@ public class Backpropogation
 				ourBigBoy.calculateTotalError(targetOutputs[i]); //Add error for current output to the total error of network
 
 				ourBigBoy.calculateDeltas(targetOutputs[i]); //Calculate deltas for each node
-				adjustWeights(inputs[i], ourBigBoy); //Проблема в том, что будут изменяться веса, а дельты должны для всех датасетов считаться на одних и тех же весах
+				adjustAffections(inputs[i], ourBigBoy);
 			}
+			ourBigBoy.adjustWeights();
 			System.out.println("Error of " + iterator + " epoch is " + ourBigBoy.getTotalError());
 			if (ourBigBoy.getTotalError() <= minAccuracy)
 				break;
@@ -47,28 +48,26 @@ public class Backpropogation
 		return ourBigBoy;
 	}
 
-	private static void adjustWeights(double[] input, NeuralNetwork ourBigBoy) //Deltas must be already calculated for this input set
+	private static void adjustAffections(double[] input, NeuralNetwork ourBigBoy) //Deltas must be already calculated for this input set
 	{
 		for (int i = ourBigBoy.body.length - 1; i > 0; --i) //Цикл по слоям, начиная с последнего и до первого
 		{
 			for (Node node : ourBigBoy.body[i]) //Цикл по нейронам слоя
 			{
-				double[] weights = node.getWeights();
-				for (int k = 0; k < weights.length; k++) //Цикл по весам нейрона
+				double[] affections = node.getAffections();
+				for (int k = 0; k < affections.length; k++) //Цикл по весам нейрона
 				{
-					double affection = node.getDelta() * ourBigBoy.body[i - 1][k].getOutput() * learningRate;
-					weights[k] -= affection;
+					affections[k] += node.getDelta() * ourBigBoy.body[i - 1][k].getOutput() * learningRate;
 				}
 			}
 		}
 
 		for (Node node : ourBigBoy.body[0]) //Цикл по первому слою (не входному, его вообще не существует)
 		{
-			double[] weights = node.getWeights();
-			for (int i = 0; i < weights.length; i++)
+			double[] affections = node.getAffections();
+			for (int i = 0; i < affections.length; i++)
 			{
-				double affection = node.getDelta() * input[i] * learningRate;
-				weights[i] -= affection;
+				affections[i] += node.getDelta() * input[i] * learningRate;
 			}
 		}
 	}

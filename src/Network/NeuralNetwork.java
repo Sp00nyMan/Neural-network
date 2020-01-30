@@ -130,4 +130,16 @@ public class NeuralNetwork implements Cloneable
 			outputLayer[i].setDelta(delta);
 		}
 	}
+
+	public void adjustWeights()
+	{
+		for (Node[] layer : body)
+			for (Node node : layer)
+			{
+				double[] affections = node.getAffections();
+				double[] weights = node.getWeights();
+				for (int i = 0; i < weights.length; i++)
+					weights[i] -= affections[i];
+			}
+	}
 }

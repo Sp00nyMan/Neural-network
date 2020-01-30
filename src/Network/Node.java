@@ -5,6 +5,7 @@ import Utils.Randomizer;
 public class Node
 {
 	private double[] weights;
+	private double[] affections;
 	private double bias;
 	private double delta;
 	private double output;
@@ -12,6 +13,10 @@ public class Node
 	public double[] getWeights()
 	{
 		return weights;
+	}
+	public double[] getAffections()
+	{
+		return affections;
 	}
 
 	public double getDelta()
@@ -38,6 +43,7 @@ public class Node
 	public Node(int inputsCount)
 	{
 		weights = new double[inputsCount];
+		affections = new double[inputsCount];
 
 		for (int i = 0; i < weights.length; i++)
 		{
@@ -50,6 +56,7 @@ public class Node
 	public Node(final Node other)
 	{
 		weights = other.weights.clone();
+		affections = other.affections.clone();
 		output = other.output;
 		bias = other.bias;
 		delta = other.delta;
