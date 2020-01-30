@@ -24,6 +24,22 @@ public class Main
 
 		System.out.println("DONE");
 		System.out.println("Time spent: " + (currentTimeMillis() - started) + " ms");
+		System.out.println("-----------------------------------");
+		for (double v : test.getOutput(new double[] {0, 0}))
+		{
+			System.out.println(v);
+		}
+		System.out.println("-----------------------------------");
+		for (double v : test.getOutput(new double[] {0, 1}))
+		{
+			System.out.println(v);
+		}
+		System.out.println("-----------------------------------");
+		for (double v : test.getOutput(new double[] {1, 0}))
+		{
+			System.out.println(v);
+		}
+		System.out.println("-----------------------------------");
 		for (double v : test.getOutput(new double[] {1, 1}))
 		{
 			System.out.println(v);

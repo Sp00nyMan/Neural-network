@@ -2,6 +2,8 @@ package Network;
 
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class NeuralNetwork implements Cloneable
 {
 	public Node[][] body;
@@ -49,6 +51,7 @@ public class NeuralNetwork implements Cloneable
 	NeuralNetwork(@NotNull final NeuralNetwork other)
 	{
 		body = new Node[other.body.length][];
+		totalError = other.totalError;
 
 		for (int i = 0; i < other.body.length; i++)
 		{
@@ -140,6 +143,14 @@ public class NeuralNetwork implements Cloneable
 				double[] weights = node.getWeights();
 				for (int i = 0; i < weights.length; i++)
 					weights[i] -= affections[i];
+			}
+	}
+	public void resetAffections()
+	{
+		for (Node[] layer : body)
+			for (Node node : layer)
+			{
+				Arrays.fill(node.getAffections(), 0);
 			}
 	}
 }

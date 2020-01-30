@@ -22,12 +22,10 @@ public class Backpropogation
 			throw new IllegalArgumentException("All outputs must be the same length");
 
 		int[] temp = new int[hiddenLayersInfo.length + 1];
-		for (int i = 0; i < hiddenLayersInfo.length; i++)
-			temp[i] = hiddenLayersInfo[i];
+		System.arraycopy(hiddenLayersInfo, 0, temp, 0, hiddenLayersInfo.length);
 		temp[hiddenLayersInfo.length] = targetOutputs[0].length;
 
 		NeuralNetwork ourBigBoy = new NeuralNetwork(temp, inputs[0].length);
-
 		for (int iterator = 1; iterator <= maxEpochs; iterator++)
 		{
 			ourBigBoy.resetTotalError();
@@ -40,7 +38,11 @@ public class Backpropogation
 				adjustAffections(inputs[i], ourBigBoy);
 			}
 			ourBigBoy.adjustWeights();
-			System.out.println("Error of " + iterator + " epoch is " + ourBigBoy.getTotalError());
+			ourBigBoy.resetAffections();
+			if(printInfo)
+			{
+				System.out.println("Error of " + iterator + " epoch is " + ourBigBoy.getTotalError());
+			}
 			if (ourBigBoy.getTotalError() <= minAccuracy)
 				break;
 		}
