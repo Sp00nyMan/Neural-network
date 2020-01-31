@@ -1,7 +1,6 @@
 package Network;
 
 import org.jetbrains.annotations.NotNull;
-
 import java.util.Arrays;
 
 public class NeuralNetwork implements Cloneable
@@ -87,7 +86,7 @@ public class NeuralNetwork implements Cloneable
 		return output;
 	}
 
-	public double calculateTotalError(final double[] idealOutput)
+	public void calculateTotalError(final double[] idealOutput)
 	{
 		if (output.length != idealOutput.length)
 			throw new IllegalArgumentException("length of idealOutput array have to be the same as neural network's output layer length");
@@ -96,8 +95,6 @@ public class NeuralNetwork implements Cloneable
 		{
 			totalError += 0.5 * Math.pow((idealOutput[i] - output[i]), 2);
 		}
-
-		return totalError;
 	}
 
 	public void calculateDeltas(double[] idealOutput)
@@ -143,6 +140,7 @@ public class NeuralNetwork implements Cloneable
 				double[] weights = node.getWeights();
 				for (int i = 0; i < weights.length; i++)
 					weights[i] -= affections[i];
+				node.increasBias(-node.getDelta() * Backpropogation.learningRate);
 			}
 	}
 	public void resetAffections()
