@@ -1,48 +1,31 @@
-import Network.NeuralNetwork;
-
-import static java.lang.System.currentTimeMillis;
+import Utils.Parser;
+import java.io.IOException;
 
 
 public class Main
 {
 	public static void main(String[] args)
 	{
-		double[][] targets = new double[][] {
-												new double[]{0},
-												new double[]{1},
-												new double[]{1},
-											};
-		double[][] inputs = new double[][] {
-												new double[]{0, 0},
-												new double[]{0, 1},
-												new double[]{1, 0},
-											};
-		int[] hidden = new int[] {3, 2};
+		int[] labels = null;
+		try {
+			 labels = Parser.getLabelsArray("src/train.csv", 42001);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 
-		long started = currentTimeMillis();
-		NeuralNetwork test = Backpropogation.getTrainedNetwork(inputs, targets, hidden, false);
+		int[][] inputs = null;
 
-		System.out.println("DONE");
-		System.out.println("Time spent: " + (currentTimeMillis() - started) + " ms");
-		System.out.println("-----------------------------------");
-		for (double v : test.getOutput(new double[] {0, 0}))
-		{
-			System.out.println(v);
+		try {
+			inputs = Parser.getInputsArray("src/train.csv", 42001, 785);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		System.out.println("-----------------------------------");
-		for (double v : test.getOutput(new double[] {0, 1}))
-		{
-			System.out.println(v);
-		}
-		System.out.println("-----------------------------------");
-		for (double v : test.getOutput(new double[] {1, 0}))
-		{
-			System.out.println(v);
-		}
-		System.out.println("-----------------------------------");
-		for (double v : test.getOutput(new double[] {1, 1}))
-		{
-			System.out.println(v);
+
+		for (int[] set : inputs) {
+			for (int i : set) {
+				System.out.print(i + " ");
+			}
+			System.out.println();
 		}
 	}
 }
