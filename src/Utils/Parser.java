@@ -1,69 +1,83 @@
 package Utils;
 
 import java.awt.geom.IllegalPathStateException;
+import java.beans.IntrospectionException;
 import java.io.*;
+import java.util.Arrays;
+import java.util.stream.Stream;
 
-public class Parser {
+public class Parser
+{
 
-    public static int[] getLabelsArray(String fileName, int rows) throws IOException {
-        if (!fileName.contains(".csv"))
-            throw new IllegalPathStateException();
-        BufferedReader file = new BufferedReader(new FileReader(fileName));
-        if (file == null) {
-            throw new FileNotFoundException();
+	public static double[][] getLabelsArray(String fileName, int rows) throws IOException
+	{
+		if (!fileName.contains(".csv"))
+			throw new IllegalPathStateException();
+		BufferedReader file = new BufferedReader(new FileReader(fileName));
+
+		int[] labels = new int[rows - 1];
+
+		file.readLine();
+		for (int i = 0; i < rows - 1; i++)
+		{
+			try
+			{
+				labels[i] = Character.getNumericValue(file.read());
+				if(labels[i] < 0)
+                    System.out.println("ПИЗДЕЦ НАХУЙ БЛЯТЬ");
+				file.readLine();
+			}
+			catch (IOException e)
+			{
+				e.printStackTrace();
+			}
+		}
+		
+		double[][] labelsArray = new double[rows - 1][10];
+        for (int i = 0; i < rows - 1; i++)
+        {
+            Arrays.fill(labelsArray[i], 0);
+            labelsArray[i][labels[i]] = 1;
         }
-        int[] labels = new int[rows];
+		
+		return labelsArray;
+	}
 
-        file.readLine();
-        for (int i = 0; i < rows; i++) {
-            try {
-                labels[i] = Character.getNumericValue(file.read());
-                file.readLine();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return labels;
-    }
+	public static double[][] getInputsArray(String fileName, int rows, int columns) throws IOException
+	{
+		if (!fileName.contains(".csv")) //Checking for correct format
+			throw new IllegalPathStateException();
 
-    public static int[][] getInputsArray(String fileName, int rows, int columns) throws IOException {
-        if (!fileName.contains(".csv")) //Checking for correct format
-            throw new IllegalPathStateException();
+		BufferedReader file = new BufferedReader(new FileReader(fileName));
 
-        BufferedReader file = new BufferedReader(new FileReader(fileName));
+		file.readLine(); //Skip header
 
-        file.readLine(); //Skip header
+		double[][] inputs = new double[rows - 1][columns - 1];
 
-        int[][] inputs = new int[rows - 1][columns];
+		for (int i = 0; i < rows - 1; i++)
+		{
+			String buffer = file.readLine() + ',';
+			inputs[i] = getIntArray(buffer, columns - 1).clone(); //Get training set
+		}
 
-        for (int i = 0; i < rows - 1; i++) {
-            file.read(); //Skip label
-            file.read(); //Skip comma after label
-            for (int j = 0; j < columns; j++) {
-                inputs[i][j] = getNextInt(file); //Get pixel value
-            }
-        }
+		return inputs;
+	}
 
-        return inputs;
-    }
 
-    private static int getNextInt(BufferedReader file) throws IOException {
-        StringBuffer buffer = new StringBuffer();
+	private static double[] getIntArray(String string, int columns)
+	{
+		double[] array = new double[columns];
 
-        char c;
-        while (true) {
-            c = (char) file.read();
-            if(c == '\r')
-                c = (char) file.read();
-            if (c == '\n' || c == '\0' || c == ',') {
-                try {
-                    return Integer.parseInt(buffer.toString());
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            buffer.append(c);
-        }
-    }
+		int k = 0;
+		StringBuffer buffer = new StringBuffer();
+		for (int i = 2; i < string.length(); i++)
+			if (Character.isDigit(string.charAt(i)))
+				buffer.append(string.charAt(i));
+			else if (buffer.length() != 0)
+			{
+				array[k++] = Integer.parseInt(buffer.toString());
+				buffer.delete(0, buffer.length());
+			}
+		return array;
+	}
 }
