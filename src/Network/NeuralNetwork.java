@@ -1,7 +1,13 @@
 package Network;
 
+import Utils.Parser;
 import org.jetbrains.annotations.NotNull;
 
+<<<<<<< Updated upstream
+=======
+import java.io.*;
+import java.util.ArrayList;
+>>>>>>> Stashed changes
 import java.util.Arrays;
 
 public class NeuralNetwork implements Cloneable
@@ -152,5 +158,57 @@ public class NeuralNetwork implements Cloneable
 			{
 				Arrays.fill(node.getAffections(), 0);
 			}
+	}
+
+	public void save(String fileName) throws IOException
+	{
+		FileWriter file = new FileWriter(fileName);
+
+		file.write(Integer.toString(body[0][0].getWeights().length)); //Write inputs count
+		for (Node[] nodes : body)
+		{
+			file.write("," + nodes.length); //Write layer size
+		}
+		file.write(",\r\n");
+		for (Node[] nodes : body)
+		{
+			for (Node node : nodes)
+			{
+				double[] weights = node.getWeights();
+				for (int i = 0; i < weights.length; i++)
+				{
+					file.write(weights[i] + ",");
+				}
+				file.write(node.getBias() + ",\r\n");
+			}
+			file.write("\r\n");
+		}
+		file.close();
+	}
+
+	//////TODO
+	public void load(String fileName) throws IOException
+	{
+		BufferedReader file = new BufferedReader(new FileReader(fileName));
+
+		ArrayList<Integer> layersInfo = Parser.getIntArray(file.readLine());
+
+		int inputsCount = layersInfo.get(0);
+		layersInfo.remove(0);
+
+		body = new Node[layersInfo.size()][];
+
+		for (int i = 0; i < layersInfo.size(); i++)
+		{
+			body[i] = new Node[layersInfo.get(i)];
+			ArrayList<Double> weightsNbias;
+			for (int j = 0; j < layersInfo.get(i); j++)
+			{
+				weightsNbias = Parser.getDoubleArray(file.readLine());
+				body[i][j] = new Node(weightsNbias.subList(0, weightsNbias.size() - 1), weightsNbias.get(weightsNbias.size() - 1));
+			}
+			file.readLine(); //read "\r\n" between layers in file
+		}
+
 	}
 }
