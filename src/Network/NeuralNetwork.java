@@ -3,11 +3,8 @@ package Network;
 import Utils.Parser;
 import org.jetbrains.annotations.NotNull;
 
-<<<<<<< Updated upstream
-=======
 import java.io.*;
 import java.util.ArrayList;
->>>>>>> Stashed changes
 import java.util.Arrays;
 
 public class NeuralNetwork implements Cloneable

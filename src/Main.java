@@ -15,7 +15,7 @@ public class Main
 
 		System.out.println("Started training");
 		long started = currentTimeMillis();
-		NeuralNetwork trained = Backpropogation.getTrainedNetwork(ints, labels, HiddenLayers, false);
+		NeuralNetwork trained = Backpropogation.getTrainedNetwork(ints, labels, HiddenLayers, true);
 		trained.save("recognizer.nn");
 
 		System.out.println("DONE in " + (currentTimeMillis() - started) + " ms");

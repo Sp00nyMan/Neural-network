@@ -2,7 +2,6 @@ package Network;
 
 import Utils.Randomizer;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Node
