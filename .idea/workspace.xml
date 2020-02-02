@@ -4,11 +4,6 @@
     <list default="true" id="66c60329-3f07-4545-9fbb-2605914488d8" name="Default Changelist" comment="Fixed some issues">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-<<<<<<< Updated upstream
-=======
-      <change beforePath="$PROJECT_DIR$/src/Network/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/NeuralNetwork.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Network/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/Node.java" afterDir="false" />
->>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/Utils/Parser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Utils/Parser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,14 +79,9 @@
       <workItem from="1580328316465" duration="9110000" />
       <workItem from="1580370724160" duration="6610000" />
       <workItem from="1580381513679" duration="4116000" />
-<<<<<<< Updated upstream
       <workItem from="1580566532086" duration="36000" />
       <workItem from="1580566633721" duration="5782000" />
       <workItem from="1580576481230" duration="8763000" />
-=======
-      <workItem from="1580456985542" duration="2911000" />
-      <workItem from="1580627284913" duration="3413000" />
->>>>>>> Stashed changes
     </task>
     <task id="LOCAL-00001" summary="Fixed some issues">
       <created>1580384281268</created>
@@ -119,10 +109,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="660" y="321" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580576566979" />
-    <state x="627" y="207" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog" timestamp="1580629177772">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="627" y="207" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629177772" />
     <state x="565" y="84" key="#com.intellij.unscramble.UnscrambleDialog" timestamp="1580384597703">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -130,7 +116,6 @@
     <state x="691" y="45" key="CommitChangelistDialog2" timestamp="1580580827133">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-<<<<<<< Updated upstream
     <state x="691" y="45" key="CommitChangelistDialog2/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580580827133" />
     <state x="724" y="168" key="FileChooserDialogImpl" timestamp="1580583581043">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -168,42 +153,14 @@
     <state width="1865" height="331" key="GridCell.Tab.1.center/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580584071949" />
     <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1580572521862" />
     <state width="1865" height="331" key="GridCell.Tab.1.left" timestamp="1580584071949">
-=======
-    <state x="691" y="45" key="CommitChangelistDialog2/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580385708299" />
-    <state width="1865" height="267" key="GridCell.Tab.0.bottom" timestamp="1580629893401">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="267" key="GridCell.Tab.0.bottom/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629893401" />
-    <state width="1865" height="267" key="GridCell.Tab.0.center" timestamp="1580629893401">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="267" key="GridCell.Tab.0.center/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629893401" />
-    <state width="1865" height="267" key="GridCell.Tab.0.left" timestamp="1580629893401">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="267" key="GridCell.Tab.0.left/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629893401" />
-    <state width="1865" height="267" key="GridCell.Tab.0.right" timestamp="1580629893401">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="267" key="GridCell.Tab.0.right/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629893401" />
-    <state width="1865" height="331" key="GridCell.Tab.1.bottom" timestamp="1580629812283">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="331" key="GridCell.Tab.1.bottom/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629812283" />
-    <state width="1865" height="331" key="GridCell.Tab.1.center" timestamp="1580629812283">
->>>>>>> Stashed changes
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="331" key="GridCell.Tab.1.center/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629812283" />
-    <state width="1865" height="331" key="GridCell.Tab.1.left" timestamp="1580629812283">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1865" height="331" key="GridCell.Tab.1.left/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629812283" />
+    <state width="1865" height="331" key="GridCell.Tab.1.left/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580584071949" />
     <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1580572521862" />
-    <state width="1865" height="331" key="GridCell.Tab.1.right" timestamp="1580629812283">
+    <state width="1865" height="331" key="GridCell.Tab.1.right" timestamp="1580584071949">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1865" height="331" key="GridCell.Tab.1.right/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580629812283" />
+    <state width="1865" height="331" key="GridCell.Tab.1.right/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580584071949" />
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1580572521862" />
     <state x="205" y="45" width="944" height="680" key="SettingsEditor" timestamp="1580576620419">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -248,16 +205,5 @@
     </state>
     <state x="539" y="5" width="840" height="1034" key="search.everywhere.popup/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580579163538" />
     <state x="359" y="3" width="672" height="677" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1580571936317" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Network/NeuralNetwork.java</url>
-          <line>196</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

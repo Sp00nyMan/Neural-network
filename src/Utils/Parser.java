@@ -1,9 +1,10 @@
 package Utils;
 
 import java.awt.geom.IllegalPathStateException;
+import java.beans.IntrospectionException;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class Parser
 {
@@ -62,6 +63,7 @@ public class Parser
 		return inputs;
 	}
 
+
 	private static double[] getIntArray(String string, int columns)
 	{
 		double[] array = new double[columns];
@@ -76,43 +78,6 @@ public class Parser
 				array[k++] = Integer.parseInt(buffer.toString());
 				buffer.delete(0, buffer.length());
 			}
-		return array;
-	}
-
-	public static ArrayList<Double> getDoubleArray(String string)
-	{
-		ArrayList<Double> array = new ArrayList<>();
-
-		StringBuffer buffer = new StringBuffer();
-		for (int i = 0; i < string.length(); i++)
-		{
-			if (Character.isDigit(string.charAt(i)) || string.charAt(i) == '.' || string.charAt(i) == '-')
-				buffer.append(string.charAt(i));
-			else if (buffer.length() != 0)
-			{
-				array.add(Double.parseDouble(buffer.toString()));
-				buffer.delete(0, buffer.length());
-			}
-		}
-		return array;
-	}
-
-	public static ArrayList<Integer> getIntArray(String string)
-	{
-		ArrayList<Integer> array = new ArrayList<>();
-		StringBuffer buffer = new StringBuffer();
-
-		for (int i = 0; i < string.length(); i++)
-		{
-			if(Character.isDigit(string.charAt(i)))
-					buffer.append(string.charAt(i));
-			else if(buffer.length() != 0)
-			{
-				array.add(Integer.parseInt(buffer.toString()));
-				buffer.delete(0, buffer.length());
-			}
-		}
-
 		return array;
 	}
 }
