@@ -5,7 +5,7 @@ public class Backpropogation
 {
 	private static final double learningRate = 1.05;
 	private static int maxEpochs = 100000;
-	private static double minAccuracy = 0.00001;
+	private static double minAccuracy = 0.001;
 
 	public static void setMaxEpochs(int newEpochs)
 	{
