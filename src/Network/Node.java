@@ -2,6 +2,8 @@ package Network;
 
 import Utils.Randomizer;
 
+import java.util.List;
+
 public class Node
 {
 	private double[] weights;
@@ -66,6 +68,15 @@ public class Node
 		delta = other.delta;
 	}
 
+	public Node(List<Double> weights, double bias)
+	{
+		this.weights = new double[weights.size()];
+		for (int i = 0; i < weights.size(); i++)
+			this.weights[i] = weights.get(i);
+
+		this.bias = bias;
+	}
+
 	public double activation(final double[] inputs) throws IllegalArgumentException
 	{
 		if(inputs.length != weights.length)
@@ -80,4 +91,8 @@ public class Node
 		return output = sigmoid(output + bias);
 	}
 
+	double getBias()
+	{
+		return bias;
+	}
 }
