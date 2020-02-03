@@ -1,4 +1,3 @@
-import Network.Backpropogation;
 import Network.NeuralNetwork;
 import Utils.Parser;
 

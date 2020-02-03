@@ -1,8 +1,9 @@
-package Network;
+import Network.NeuralNetwork;
+import Network.Node;
 
 public class Backpropogation
 {
-	public static final double learningRate = 1.05;
+	private static final double learningRate = 1.05;
 	private static int maxEpochs = 100000;
 	private static double minAccuracy = 0.001;
 
