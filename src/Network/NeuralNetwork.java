@@ -90,7 +90,7 @@ public class NeuralNetwork implements Cloneable
 		return output;
 	}
 
-	public double calculateTotalError(final double[] idealOutput)
+	public void calculateTotalError(final double[] idealOutput)
 	{
 		if (output.length != idealOutput.length)
 			throw new IllegalArgumentException("length of idealOutput array have to be the same as neural network's output layer length");
@@ -100,7 +100,6 @@ public class NeuralNetwork implements Cloneable
 			totalError += 0.5 * Math.pow((idealOutput[i] - output[i]), 2);
 		}
 
-		return totalError;
 	}
 
 	public void calculateDeltas(double[] idealOutput)
@@ -132,7 +131,8 @@ public class NeuralNetwork implements Cloneable
 		for (int i = 0; i < outputLayer.length; i++)
 		{
 			double output = outputLayer[i].getOutput();
-			double delta = (output - targetOutput[i]) * (1 - output) * output;
+			//TODO
+			double delta = (output - targetOutput[i]) * (1 - output) * output; //Если output = 0, то delta всегда 0, вне зависимости от Target
 			outputLayer[i].setDelta(delta);
 		}
 	}
@@ -146,6 +146,7 @@ public class NeuralNetwork implements Cloneable
 				double[] weights = node.getWeights();
 				for (int i = 0; i < weights.length; i++)
 					weights[i] -= affections[i];
+				node.increaseBias(-node.getDelta() * Backpropagation.learningRate);
 			}
 	}
 	public void resetAffections()
@@ -161,7 +162,6 @@ public class NeuralNetwork implements Cloneable
 	{
 		FileWriter file = new FileWriter(fileName);
 
-		file.write(Integer.toString(body[0][0].getWeights().length)); //Write inputs count
 		for (Node[] nodes : body)
 		{
 			file.write("," + nodes.length); //Write layer size
@@ -172,9 +172,9 @@ public class NeuralNetwork implements Cloneable
 			for (Node node : nodes)
 			{
 				double[] weights = node.getWeights();
-				for (int i = 0; i < weights.length; i++)
+				for (double weight : weights)
 				{
-					file.write(weights[i] + ",");
+					file.write(weight + ",");
 				}
 				file.write(node.getBias() + ",\r\n");
 			}
@@ -183,15 +183,11 @@ public class NeuralNetwork implements Cloneable
 		file.close();
 	}
 
-	//////TODO
 	public void load(String fileName) throws IOException
 	{
 		BufferedReader file = new BufferedReader(new FileReader(fileName));
 
 		ArrayList<Integer> layersInfo = Parser.getIntArray(file.readLine());
-
-		int inputsCount = layersInfo.get(0);
-		layersInfo.remove(0);
 
 		body = new Node[layersInfo.size()][];
 

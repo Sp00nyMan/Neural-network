@@ -1,16 +1,10 @@
-import Network.NeuralNetwork;
-import Network.Node;
+package Network;
 
-public class Backpropogation
+public class Backpropagation
 {
-	private static final double learningRate = 1.05;
+	public static final double learningRate = 1.05;
 	private static int maxEpochs = 100000;
 	private static double minAccuracy = 0.001;
-
-	public static void setMaxEpochs(int newEpochs)
-	{
-		maxEpochs = newEpochs;
-	}
 
 	public static NeuralNetwork getTrainedNetwork(double[][] inputs, double[][] targetOutputs, int[] hiddenLayersInfo, boolean printInfo)
 	{

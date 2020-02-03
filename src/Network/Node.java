@@ -21,6 +21,11 @@ public class Node
 		return affections;
 	}
 
+	public void increaseBias(double offset)
+	{
+		bias += offset;
+	}
+
 	public double getDelta()
 	{
 		return delta;
