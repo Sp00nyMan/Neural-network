@@ -12,7 +12,7 @@ public class Main
 	{
 		double[][] ints = Parser.getInputsArray("src/train.csv", 42001, 785);
 		double[][] labels = Parser.getLabelsArray("src/train.csv", 42001);
-		int[] HiddenLayers = new int[] {16,16};
+		int[] HiddenLayers = new int[] {16, 16};
 
 		System.out.println("Started training");
 		long started = currentTimeMillis();

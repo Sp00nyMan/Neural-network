@@ -87,7 +87,6 @@ public class Node
 		{
 			output += inputs[i] * weights[i];
 		}
-		output += bias;
 
 		return output = sigmoid(output + bias);
 	}

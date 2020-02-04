@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="66c60329-3f07-4545-9fbb-2605914488d8" name="Default Changelist" comment="Added network saving, bias correction. Found bug at deltas calculation.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Backpropogation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/Backpropagation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Network/NeuralNetwork.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/NeuralNetwork.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Network/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Network/Node.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +55,8 @@
       <option name="presentableId" value="Default" />
       <updated>1580646170545</updated>
       <workItem from="1580646175157" duration="1181000" />
+      <workItem from="1580844914577" duration="256000" />
+      <workItem from="1580845205390" duration="1757000" />
     </task>
     <servers />
   </component>
@@ -68,7 +68,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -91,37 +93,45 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="421" y="83" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1580646150683" />
-    <state width="1237" height="204" key="GridCell.Tab.0.bottom" timestamp="1580708845597">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="268" key="GridCell.Tab.0.bottom" timestamp="1580846860256">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="268" key="GridCell.Tab.0.bottom/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846860256" />
     <state width="1237" height="204" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580708845597" />
-    <state width="1237" height="204" key="GridCell.Tab.0.center" timestamp="1580708845597">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="268" key="GridCell.Tab.0.center" timestamp="1580846860256">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="268" key="GridCell.Tab.0.center/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846860256" />
     <state width="1237" height="204" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1580708845597" />
-    <state width="1237" height="204" key="GridCell.Tab.0.left" timestamp="1580708845597">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="268" key="GridCell.Tab.0.left" timestamp="1580846860256">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="268" key="GridCell.Tab.0.left/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846860256" />
     <state width="1237" height="204" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1580708845597" />
-    <state width="1237" height="204" key="GridCell.Tab.0.right" timestamp="1580708845597">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="268" key="GridCell.Tab.0.right" timestamp="1580846860256">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="268" key="GridCell.Tab.0.right/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846860256" />
     <state width="1237" height="204" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1580708845597" />
-    <state width="1237" height="204" key="GridCell.Tab.1.bottom" timestamp="1580708845598">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="333" key="GridCell.Tab.1.bottom" timestamp="1580846453236">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="333" key="GridCell.Tab.1.bottom/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846453236" />
     <state width="1237" height="204" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1580708845598" />
-    <state width="1237" height="204" key="GridCell.Tab.1.center" timestamp="1580708845598">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="333" key="GridCell.Tab.1.center" timestamp="1580846453236">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="333" key="GridCell.Tab.1.center/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846453236" />
     <state width="1237" height="204" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1580708845598" />
-    <state width="1237" height="204" key="GridCell.Tab.1.left" timestamp="1580708845598">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="333" key="GridCell.Tab.1.left" timestamp="1580846453236">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="333" key="GridCell.Tab.1.left/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846453236" />
     <state width="1237" height="204" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1580708845598" />
-    <state width="1237" height="204" key="GridCell.Tab.1.right" timestamp="1580708845598">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state width="1865" height="333" key="GridCell.Tab.1.right" timestamp="1580846453236">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1865" height="333" key="GridCell.Tab.1.right/-1600.0.1600.860/0.0.1920.1040@0.0.1920.1040" timestamp="1580846453236" />
     <state width="1237" height="204" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1580708845598" />
     <state x="131" y="0" key="SettingsEditor" timestamp="1580646393994">
       <screen x="0" y="0" width="1280" height="680" />
@@ -131,16 +141,5 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1580646402852" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Network/Backpropagation.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
