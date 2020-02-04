@@ -115,7 +115,7 @@ public class NeuralNetwork implements Cloneable
 				{
 					delta += body[i + 1][j].getDelta() * body[i + 1][j].getWeights()[k];
 				}
-				delta *= body[i][k].getOutput() * (1 - body[i][k].getOutput());
+				//delta *= body[i][k].getOutput() * (1 - body[i][k].getOutput());
 				body[i][k].setDelta(delta);
 			}
 		}
@@ -132,7 +132,7 @@ public class NeuralNetwork implements Cloneable
 		{
 			double output = outputLayer[i].getOutput();
 			//TODO
-			double delta = (output - targetOutput[i]) * (1 - output) * output; //Если output = 0, то delta всегда 0, вне зависимости от Target
+			double delta = (output - targetOutput[i]);// * (1 - output) * output; //Если output = 0, то delta всегда 0, вне зависимости от Target
 			outputLayer[i].setDelta(delta);
 		}
 	}

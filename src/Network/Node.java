@@ -88,7 +88,9 @@ public class Node
 			output += inputs[i] * weights[i];
 		}
 
-		return output = sigmoid(output + bias);
+		output += bias;
+		
+		return output; // = sigmoid(output + bias);
 	}
 
 	double getBias()

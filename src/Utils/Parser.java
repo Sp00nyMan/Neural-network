@@ -22,8 +22,6 @@ public class Parser
 			try
 			{
 				labels[i] = Character.getNumericValue(file.read());
-				if(labels[i] < 0)
-                    System.out.println("ПИЗДЕЦ НАХУЙ БЛЯТЬ");
 				file.readLine();
 			}
 			catch (IOException e)
@@ -73,7 +71,7 @@ public class Parser
 				buffer.append(string.charAt(i));
 			else if (buffer.length() != 0)
 			{
-				array[k++] = Integer.parseInt(buffer.toString());
+				array[k++] = (double)Integer.parseInt(buffer.toString()) / 255;
 				buffer.delete(0, buffer.length());
 			}
 		return array;

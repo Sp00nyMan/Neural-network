@@ -2,7 +2,7 @@ package Network;
 
 public class Backpropagation
 {
-	public static final double learningRate = 1.05;
+	public static final double learningRate = 1.05 / 42000;
 	private static int maxEpochs = 100000;
 	private static double minAccuracy = 0.001;
 
